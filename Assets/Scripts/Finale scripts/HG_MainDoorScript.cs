@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using PixelCrushers.DialogueSystem;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HG_MainDoorScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform targetEmptyObject; // Das leere GameObject, auf das die Kamera gesetzt werden soll
     public Transform playerSpawnPoint;
-    public TextMeshProUGUI interactionText;
-    public string First_Message;
+    public RawImage interactionText;
+    public Texture First_Texture;
     private bool isPlayerNearDoor;
 
     private int dialogeImRathaus;
@@ -20,7 +22,7 @@ public class HG_MainDoorScript : MonoBehaviour
 
         if (interactionText != null)
         {
-            interactionText.text = First_Message;
+            interactionText.texture = First_Texture;
             interactionText.enabled = false;
         }
 
@@ -47,7 +49,12 @@ public class HG_MainDoorScript : MonoBehaviour
 
     }
 
-   
+    public Texture  neuesImage;
+    private void changeShowImage()
+    {
+        interactionText.texture = neuesImage;   
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -30,6 +30,15 @@ TagManager:
   - ID4
   - BackgroundCanvas
   - WEIZENMINISPIEL
+  - Restarter
+  - BBMinispielCreater
+  - PlayerPos
+  - ResetCamera
+  - BauerBernsd
+  - Uiselector
+  - ui Briefmarke
+  - ui Antrag
+  - uiBackpack
   layers:
   - Default
   - TransparentFX

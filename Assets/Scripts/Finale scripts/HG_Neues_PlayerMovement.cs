@@ -77,39 +77,53 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
             StartCoroutine(JumpCooldown());
         }
 
-        if(!spRe.flipX && horizontalInput < 0)
+
+        if (!GameObject.FindGameObjectWithTag("BauerBernsd"))
         {
 
-           
-                flip.SetTrigger("Flipper");
-
-
-
-            if (GameObject.Find("BAuerBerndP") == null)
+            if (!spRe.flipX && horizontalInput < 0)
             {
+
+                flip.SetTrigger("Flipper");
                 spRe.flipX = true;
             }
-            else spRe.flipX = false;
-
-        }
-        else if(spRe.flipX && horizontalInput > 0)
-               {
-
-                 
-                    flip.SetTrigger("Flipper");
-              
-            
-                if(GameObject.Find("BAuerBerndP") == null)
-                  {
+            else if (spRe.flipX && horizontalInput > 0)
+            {
+                flip.SetTrigger("Flipper");
                 spRe.flipX = false;
+            }
 
-                  } else spRe.flipX = true;
+        } else
+        {
+            if (!spRe.flipX && horizontalInput > 0)
+            {
+
+                flip.SetTrigger("Flipper");
+                
+            }
+            else if (spRe.flipX && horizontalInput < 0)
+            {
+                flip.SetTrigger("Flipper");
+               
+            }
+        }
+     
+
+
+           
 
 
 
 
 
-               }
+
+
+
+            // if(GameObject.FindGameObjectWithTag("BauerBernsd"))
+            //  {
+            //          spRe.flipX = false;
+
+            //    } else spRe.flipX = true;
 
 
         if (verticalInput > 0)
@@ -134,10 +148,7 @@ public class HG_Neues_PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(2);
         footsteps.SetActive(true);
     }
-    private void DeaktiveFootsteps()
-    {
-        footsteps.SetActive(false); 
-    }
+  
     IEnumerator JumpCooldown()
     {
         yield return new WaitForSeconds(jumpCooldown);

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 4630fa5f5467cf44ca7ec539fef12358
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nacher: {fileID: 2800000, guid: 602dc32a7a04b42448dcc30b66422b2d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

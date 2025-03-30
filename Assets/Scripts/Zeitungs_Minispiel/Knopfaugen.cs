@@ -4,7 +4,6 @@ using UnityEngine;
 //Simeon
 public class Knopfaugen : MonoBehaviour
 {
-    public bool neustart = false;
     void Awake()
     {
         //this.onClick.AddListener(clickClack);
@@ -13,12 +12,13 @@ public class Knopfaugen : MonoBehaviour
     // Start is called before the first frame update
     public void OnOpenButtonClick()
     {
-        neustart = true;
-        Debug.Log("Jahuhuhuj");
+        GameObject.FindGameObjectWithTag("BBMinispielCreater").GetComponent<Abfrage>().neuStart();
     }
 
     public void verstecken(bool pJN)
     {
         gameObject.SetActive(pJN);
     }
+
+   
 }

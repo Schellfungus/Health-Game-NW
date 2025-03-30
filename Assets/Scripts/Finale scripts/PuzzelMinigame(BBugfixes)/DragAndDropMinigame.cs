@@ -104,6 +104,6 @@ public class DragAndDropMinigame : MonoBehaviour
     public void weiter()
     {
         Debug.Log("weiter");
-        loader.LadeSzene("bB");
+        loader.LadeSzene("bB_Zeitungsminispiel");
     }
 }

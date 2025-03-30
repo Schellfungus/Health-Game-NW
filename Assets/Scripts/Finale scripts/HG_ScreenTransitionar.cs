@@ -33,8 +33,6 @@ public class HG_ScreenTransitionar : MonoBehaviour
         {
             Debug.Log("nein"+this.name);
             
-            
-            
                 StartCoroutine(bewegespielerundcamera());
             
 

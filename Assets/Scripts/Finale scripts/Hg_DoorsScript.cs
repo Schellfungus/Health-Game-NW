@@ -9,7 +9,7 @@
 
         public Transform targetCameraPosition; // Das leere GameObject, auf das die Kamera gesetzt werden soll
         public Transform playerSpawnPoint;
-        public TextMeshProUGUI interactionText;
+        public RawImage interactionText;
         private bool isPlayerNearDoor;
 
     
@@ -42,23 +42,29 @@
             SetPlayerToSpawnPoint();
             SwitchCamera();
             ShowInteractionText(false);
-
+            
         }
 
-        public void setzeSchluessel(bool phatSchluessel, string pText)
+        public void setzeSchluessel(bool phatSchluessel, Texture pText)
         {
             hatSchluessel = phatSchluessel;
-            interactionText.text = pText;
+            interactionText.texture = pText;
         }
+    public void setzeSchluesselmitDialogSystem(bool phatSchluessel)
+    {
+        hatSchluessel = phatSchluessel;
+       
+    }
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
                 isPlayerNearDoor = true;
-                ShowInteractionText(true);
-            }
+            ShowInteractionText(true);
+           
         }
+    }
 
         private void OnTriggerExit(Collider other)
         {
@@ -71,8 +77,13 @@
 
         private void ShowInteractionText(bool show)
         {
-            if (interactionText != null)
-                interactionText.enabled = show;
+        if (interactionText != null)
+        {
+
+
+            interactionText.enabled = show;
+            
+        }
         }
 
         private void SwitchCamera()

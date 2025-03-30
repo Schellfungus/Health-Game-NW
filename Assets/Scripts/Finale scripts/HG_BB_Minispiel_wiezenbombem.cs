@@ -63,11 +63,16 @@ public class HG_BB_Minispiel_wiezenbombem : MonoBehaviour
     }
 
         
+
+    public void ZeigeGewonenenScreen()
+    {
+        ui1.SetActive(true); ui2.SetActive(true);
+    }
     public void gewonnenener()
     {
-         ui1.SetActive(true); ui2.SetActive(true);
+        
        
-        StartCoroutine(warteKurz());
+       
         GameObject.FindGameObjectWithTag("HG_OnSceneLoad").GetComponent<HG_ONSceneLaod>().LadeSzene("bBmini");
     }
 

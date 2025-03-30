@@ -21,6 +21,7 @@ public class HG_ONSceneLaod : MonoBehaviour
     public static HG_ONSceneLaod dieses;
 
 
+     
     [SerializeField] private GameObject _loaderCanvas;
 
     [SerializeField]  public Image _progressBar;
@@ -54,6 +55,8 @@ public class HG_ONSceneLaod : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         geerntet = false;
     }
+
+   
     private void Awake()    
     {
 
@@ -143,7 +146,15 @@ public class HG_ONSceneLaod : MonoBehaviour
         {
             spawnErkenner = 8;
             playerTransform.rotation = new Quaternion(Quaternion.identity.x, Quaternion.identity.y, 180, Quaternion.identity.w);
+            StartCoroutine(aendereNummer(4));
             LadeScene("Bürgermeister");
+        }
+        if (SzenenName == "bB_Zeitungsminispiel")
+        {
+            spawnErkenner = 10;
+            StartCoroutine(aendereNummer(4));
+            LadeScene("Bürgermeister");
+           
         }
 
         if (SzenenName == "rathaus")
@@ -175,13 +186,20 @@ public class HG_ONSceneLaod : MonoBehaviour
         }
         if (SzenenName == "Bernd_Reaktion")
         {
+           
             LadeScene("Bernd_Reaktion");
             
         }
     }
 
 
-    
+     IEnumerator aendereNummer(int num)
+    {
+        yield return new WaitForSeconds(5f);
+        spawnErkenner = num;
+        yield return new WaitForSeconds(10f);
+        geerntet= false;
+    }
 
 
     public void BewegeSpielerUndCamera(Transform playerSpawn,Transform CameraSpawn)

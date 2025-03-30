@@ -11,9 +11,9 @@ public class HG_BauerBernd_Minispiel : MonoBehaviour
 
 
 
-  
+    public GameObject CameraPosnnach2minispiel;
 
-
+    public Texture schlusselTexture;
     public GameObject Tuer1;
     public GameObject Tuer2;
 
@@ -42,22 +42,32 @@ public class HG_BauerBernd_Minispiel : MonoBehaviour
 
 
     }
-   
+    private void SwitchCamera()
+    {
+        Camera.main.transform.parent = CameraPosnnach2minispiel.transform; // Die Kamera auf das cameraPosition GameObject setzen
+        Camera.main.transform.localPosition = Vector3.zero;
+        Camera.main.transform.localRotation = Quaternion.identity;
+
+    }
+
     public void starteMinispiel()
     {
-        Debug.Log("hss");
-        onSceneLoader.LadeSzene("Bernd_Reaktion");
+        
         schließeAuf();
+        onSceneLoader.LadeSzene("Bernd_Reaktion");
+        
     }
 
     public void schließeAuf()
     {
-        Tuer1.GetComponent<Hg_DoorsScript>().setzeSchluessel(true, "Drücke e zum Verlassen");
-        Tuer2.GetComponent<Hg_DoorsScript>().setzeSchluessel(true, "Drücke e zum Eintreten ");
+        Tuer1.GetComponent<Hg_DoorsScript>().setzeSchluessel(true, schlusselTexture);
+        Tuer2.GetComponent<Hg_DoorsScript>().setzeSchluessel(true, schlusselTexture);
     }
 
 
 
+
+    public bool minispiel = false;
 
     /////
     ///
@@ -65,8 +75,9 @@ public class HG_BauerBernd_Minispiel : MonoBehaviour
 
     public void zweitesMInispeil()
     {
+        minispiel = true;
         onSceneLoader.LadeSzene("Zeitung_Puzzle");
-        Debug.Log("fehelr");
+     
     }
 
 
